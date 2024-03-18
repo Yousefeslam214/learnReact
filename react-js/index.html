@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>REACT-JS</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        const name ='React';
+        const ele1 = (<p className="test"> <span> SPAN 1</span><i> ITALIC </i></p>);
+        // function App() {
+        //     return (
+        //         <div><p>Hello React</p></div>
+        //     )
+        // }
+        class App extends React.Component {
+
+            state = {
+                name : 'App Component'
+            }
+            render() {
+                return (
+                    <div>
+                        <p>{this.state.name}</p>
+                        <Header name="Header"/>
+                        <Content name="Content"/>
+                        <Footer name="Footer"/>
+                    </div>
+                )
+            }
+        }
+        // Header Component
+        class Header extends React.Component {
+            
+            render() {
+                return (
+                    <header>{console.log(this.props.name)}{this.props.name}</header>
+                )
+            }
+        }
+        // Content Component
+        class Content extends React.Component {
+            state = {
+                name: 'Main Component'
+            }
+            render() {
+                return (
+                    <main>{this.props.name} , and state : {this.state.name}</main>
+                )
+            }
+        }
+        // Footer Component
+        class Footer extends React.Component {
+            render() {
+                return (
+                    <footer>{this.props.name}</footer>
+                )
+            }
+        }
+
+
+        //ReactDOM.render(ele1, document.getElementById('app'));
+        ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+</body>
+</html>
